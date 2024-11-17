@@ -4,7 +4,7 @@
         font-family: 'Arial', sans-serif;
         background: linear-gradient(135deg, #ffcccb 0%, #ffebcd 100%);
         color: #333;
-        overflow-y: hidden;
+        /* overflow-y: hidden; */
     }
 
      h1 {
@@ -158,4 +158,19 @@
   
   .instruction-image {
         height: 300px;
+}
+
+.instruction-image-with {
+        height: 600px;
   }
+
+.wishes-img {
+        max-height: 90vh;
+}
+
+.carousel-item img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+}
