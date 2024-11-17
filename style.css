@@ -1,21 +1,30 @@
 
+
     body {
         font-family: 'Arial', sans-serif;
         background: linear-gradient(135deg, #ffcccb 0%, #ffebcd 100%);
         color: #333;
+        overflow-y: hidden;
     }
 
+     h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #8b0000;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #000000;
+        font-weight: bold;
+    }
     .welcome {
         height: 100vh;
         text-align: center;
         padding: 20px;
     }
-    .welcome h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #8b0000;
-    }
-    .welcome img {
+    img {
         max-width: 100%;
         height: auto;
         border: 5px solid #fff;
@@ -23,12 +32,12 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .ml2 {
+    .ml2, .m13 {
   font-weight: 900;
   font-size: 3.5em;
 }
 
-.ml2 .letter {
+.ml2, .m13 .letter {
   display: inline-block;
   line-height: 1em;
 }
@@ -147,3 +156,6 @@
     }
   }
   
+  .instruction-image {
+        height: 300px;
+  }
