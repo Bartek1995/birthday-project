@@ -2,48 +2,49 @@ const happySound = new Audio("sounds/happy-sound.mp3");
 const wiiSound = new Audio("sounds/wii.mp3");
 const ducksSound = new Audio("sounds/ducks.mp3");
 const miauSound = new Audio("sounds/miau.mp3");
-// Wrap every letter in a span for the first text
-var textWrapper1 = document.querySelector('.ml2');
-textWrapper1.innerHTML = textWrapper1.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-anime.timeline({loop: false})
-  .add({
-    targets: '.text-1 .letter',
-    scale: [4, 1],
-    opacity: [0, 1],
-    translateZ: 0,
-    easing: "easeOutExpo",
-    duration: 350,
-    delay: (el, i) => 70 * i
+function animateText(selector, callback) {
+  var elements = document.querySelectorAll(selector);
+  elements.forEach(function(element) {
+      element.innerHTML = element.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+      
+      anime.timeline({loop: false})
+          .add({
+              targets: selector + ' .letter',
+              opacity: [0, 1],
+              easing: "easeInOutQuad",
+              duration: 200,  // Przyspieszenie animacji
+              offset: '-=775',
+              delay: function(el, i) {
+                  return 50 * (i + 1);  // Przyspieszenie opóźnienia
+              },
+              complete: callback // Wywołaj callback po zakończeniu animacji
+          });
   });
-
-// Wrap every letter in a span for the second text
-var textWrapper2 = document.querySelector('.ml3');
-textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-// Function to trigger animation for the second text
-function animateText() {
-  anime.timeline({loop: false})
-    .add({
-      targets: '.ml3 .letter',
-      scale: [4, 1],
-      opacity: [0, 1],
-      translateZ: 0,
-      easing: "easeOutExpo",
-      duration: 350,
-      delay: (el, i) => 70 * i
-    });
 }
 
-// Intersection Observer to detect when .ml3 is in view
-var observer = new IntersectionObserver(function(entries) {
-  if (entries[0].isIntersecting) {
-    animateText();
-    observer.disconnect(); // To ensure the animation runs only once
-  }
-}, { threshold: 0.1 }); // Trigger when 10% of the element is in view
+// Funkcja do uruchamiania animacji gdy element jest widoczny
+function setupAnimationObserver(selector, callback) {
+  var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              animateText(selector, callback);
+              observer.unobserve(entry.target);  // Odłączenie obserwatora po uruchomieniu animacji
+          }
+      });
+  }, { threshold: 0.1 });  // Uruchomienie gdy 10% elementu jest widoczne
 
-observer.observe(document.querySelector('.ml3'));
+  document.querySelectorAll(selector).forEach(element => {
+      observer.observe(element);
+  });
+}
+
+// Dodajemy callback do setupAnimationObserver dla .ml4
+setupAnimationObserver('.ml2');
+setupAnimationObserver('.ml3');
+setupAnimationObserver('.ml4', function() {
+  document.getElementById('check-me').classList.remove('d-none');
+});
 
 
 const soundBtn = document.querySelector('#sound-btn');

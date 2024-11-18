@@ -2,7 +2,7 @@
 
     body {
         font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #ffcccb 0%, #ffebcd 100%);
+        background: linear-gradient(135deg, #f6a7a6 0%, #ffffff 100%);
         color: #333;
         /* overflow-y: hidden; */
     }
@@ -25,7 +25,7 @@
         padding: 20px;
     }
     img {
-        max-width: 100%;
+        max-width: 66%;
         height: auto;
         border: 5px solid #fff;
         border-radius: 15px;
@@ -49,6 +49,11 @@
     cursor: pointer;
     text-decoration: none;
     color: black;
+}
+
+.heartbeat {
+	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	        animation: heartbeat 1.5s ease-in-out infinite both;
 }
 
  @-webkit-keyframes bounce-top {
@@ -155,7 +160,75 @@
       opacity: 1;
     }
   }
-  
+  @-webkit-keyframes heartbeat {
+        from {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+          -webkit-transform-origin: center center;
+                  transform-origin: center center;
+          -webkit-animation-timing-function: ease-out;
+                  animation-timing-function: ease-out;
+        }
+        10% {
+          -webkit-transform: scale(0.91);
+                  transform: scale(0.91);
+          -webkit-animation-timing-function: ease-in;
+                  animation-timing-function: ease-in;
+        }
+        17% {
+          -webkit-transform: scale(0.98);
+                  transform: scale(0.98);
+          -webkit-animation-timing-function: ease-out;
+                  animation-timing-function: ease-out;
+        }
+        33% {
+          -webkit-transform: scale(0.87);
+                  transform: scale(0.87);
+          -webkit-animation-timing-function: ease-in;
+                  animation-timing-function: ease-in;
+        }
+        45% {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+          -webkit-animation-timing-function: ease-out;
+                  animation-timing-function: ease-out;
+        }
+      }
+      @keyframes heartbeat {
+        from {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+          -webkit-transform-origin: center center;
+                  transform-origin: center center;
+          -webkit-animation-timing-function: ease-out;
+                  animation-timing-function: ease-out;
+        }
+        10% {
+          -webkit-transform: scale(0.91);
+                  transform: scale(0.91);
+          -webkit-animation-timing-function: ease-in;
+                  animation-timing-function: ease-in;
+        }
+        17% {
+          -webkit-transform: scale(0.98);
+                  transform: scale(0.98);
+          -webkit-animation-timing-function: ease-out;
+                  animation-timing-function: ease-out;
+        }
+        33% {
+          -webkit-transform: scale(0.87);
+                  transform: scale(0.87);
+          -webkit-animation-timing-function: ease-in;
+                  animation-timing-function: ease-in;
+        }
+        45% {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+          -webkit-animation-timing-function: ease-out;
+                  animation-timing-function: ease-out;
+        }
+      }
+      
   .instruction-image {
         height: 300px;
 }
@@ -174,3 +247,69 @@
         max-width: 100%;
         height: auto;
 }
+
+
+@font-face {
+        font-family: 'Rocher';
+        src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+      }
+      
+      .custom-font {
+        font-family: 'Rocher';
+      }
+      
+      
+      @font-palette-values --Grays {
+        font-family: Rocher;
+        base-palette: 9;
+      }
+      
+      @font-palette-values --Purples {
+        font-family: Rocher;
+        base-palette: 6;
+      }
+      
+      @font-palette-values --Mint {
+        font-family: Rocher;
+        base-palette: 7;
+      }
+      
+      @font-palette-values --Green {
+        font-family: Rocher;
+        base-palette: 2;
+      }
+
+      @font-palette-values --Pink {
+        font-family: Rocher;
+        base-palette: 1;
+      }
+
+      @font-palette-values --Blue {
+        font-family: Rocher;
+        base-palette: 10;
+      }
+      
+      .grays {
+        font-palette: --Grays;
+      }
+      
+      .purples {
+        font-palette: --Purples;
+      }
+      
+      .mint {
+        font-palette: --Mint;
+      }
+
+      .green {
+        font-palette: --Green;
+      }
+
+      .pink {
+        font-palette: --Pink;
+      }
+      .blue {
+        font-palette: --Blue;
+      }
+
+
